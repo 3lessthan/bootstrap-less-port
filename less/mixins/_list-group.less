@@ -1,20 +1,20 @@
 // List Groups
 
-#list-group-item-variant(@state, @background, @color) {
+#list-group-item-variant(@state; @background; @color; @hover-color: @color; @hover-bg: darken(@background, 5%); @active-color: @white; @active-bg: @color; @active-border: @color) {
 	.list-group-item-@{state} {
-		color: @color;
+		color:            @color;
 		background-color: @background;
 
 		&.list-group-item-action {
 			#hover-focus({
-				color: @color;
-				background-color: darken(@background, 5%);
+				color:            @hover-color;
+				background-color: @hover-bg;
 			});
 
 			&.active {
-				color: @white;
-				background-color: @color;
-				border-color: @color;
+				color:            @active-color;
+				background-color: @active-bg;
+				border-color:     @active-border;
 			}
 		}
 	}
