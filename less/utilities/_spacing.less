@@ -70,7 +70,36 @@ each(map-keys(@grid-breakpoints), #(@breakpoint) {
 				.@{abbrev}x@{infix}-@{size} {
 					@{prop}-left: @length !important;
 				}
-			});
+      });
+
+      // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+      each(@spacers, #(@length, @size) {
+        .@{abbrev}@{infix}-n@{size} when not (@size = 0) { @{prop}: -@length !important; }
+        .@{abbrev}t@{infix}-n@{size},
+        .@{abbrev}y@{infix}-n@{size} {
+          & when not (@size = 0) {
+            @{prop}-top: -@length !important;
+          }
+        }
+        .@{abbrev}r@{infix}-n@{size},
+        .@{abbrev}x@{infix}-n@{size} {
+          & when not (@size = 0) {
+            @{prop}-right: -@length !important;
+          }
+        }
+        .@{abbrev}b@{infix}-n@{size},
+        .@{abbrev}y@{infix}-n@{size} {
+          & when not (@size = 0) {
+            @{prop}-bottom: -@length !important;
+          }
+        }
+        .@{abbrev}l@{infix}-n@{size},
+        .@{abbrev}x@{infix}-n@{size} {
+          & when not (@size = 0) {
+            @{prop}-left: -@length !important;
+          }
+        }
+      });
 		});
 
 		// Some special margin utils
