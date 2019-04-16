@@ -71,11 +71,11 @@
 	// `:extend()` it later. This means that the selector is output in the compiled CSS, creating a
 	// small disparity between the Less and Sass versions.
 	.grid-column {
-		position: relative;
-		width: 100%;
-		min-height: 1px; // Prevent columns from collapsing when empty
+		position:      relative;
+		width:         100%;
+		min-height:    1px; // Prevent columns from collapsing when empty
 		padding-right: (@gutter / 2);
-		padding-left: (@gutter / 2);
+		padding-left:  (@gutter / 2);
 	};
 
 	each(map-keys(@breakpoints), #(@breakpoint) {
@@ -97,12 +97,12 @@
 			// Provide basic `.col-{bp}` classes for equal-width flexbox columns
 			.col@{infix} {
 				flex-basis: 0;
-				flex-grow: 1;
-				max-width: 100%;
+				flex-grow:  1;
+				max-width:  100%;
 			}
 			.col@{infix}-auto {
-				flex: 0 0 auto;
-				width: auto;
+				flex:      0 0 auto;
+				width:     auto;
 				max-width: none; // Reset earlier grid tiers
 			}
 
