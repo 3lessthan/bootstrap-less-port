@@ -3,24 +3,26 @@
 //
 
 .btn {
-	display: inline-block;
-	font-weight: @btn-font-weight;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	user-select: none;
-	border: @btn-border-width solid transparent;
-	#button-size(@btn-padding-y, @btn-padding-x, @font-size-base, @btn-line-height, @btn-border-radius);
+	display:          inline-block;
+  font-family:      @btn-font-family;
+  font-weight:      @btn-font-weight;
+  color:            @body-color;
+	text-align:       center;
+	vertical-align:   middle;
+  user-select:      none;
+  background-color: transparent;
+	border:           @btn-border-width solid transparent;
+	#button-size(@btn-padding-y, @btn-padding-x, @btn-font-size, @btn-line-height, @btn-border-radius);
 	#transition(@btn-transition);
 
-	// Share hover and focus styles
-	#hover-focus({
+	#hover({
+    color:           @body-color;
 		text-decoration: none;
-	});
+  });
 
 	&:focus,
 	&.focus {
-		outline: 0;
+		outline:    0;
 		box-shadow: @btn-focus-box-shadow;
 	}
 
@@ -29,11 +31,6 @@
 	&:disabled {
 		opacity: @btn-disabled-opacity;
 		#box-shadow(none);
-	}
-
-	// Opinionated: add "hand" cursor to non-disabled .btn elements
-	&:not(:disabled):not(.disabled) {
-		cursor: pointer;
 	}
 
 	&:not(:disabled):not(.disabled):active,
@@ -90,29 +87,26 @@ each(@theme-colors, #(@value, @color) {
 
 // Make a button look and behave like a link
 .btn-link {
-	font-weight: @font-weight-normal;
-	color: @link-color;
-	background-color: transparent;
+	font-weight:     @font-weight-normal;
+	color:           @link-color;
+  text-decoration: @link-decoration;
 
 	#hover({
-		color: @link-hover-color;
+		color:           @link-hover-color;
 		text-decoration: @link-hover-decoration;
-		background-color: transparent;
-		border-color: transparent;
 	});
 
 	&:focus,
 	&.focus {
 		text-decoration: @link-hover-decoration;
-		border-color: transparent;
-		box-shadow: none;
+		box-shadow:      none;
 	}
 
 	&:disabled,
 	&.disabled {
-		color: @btn-link-disabled-color;
+		color:          @btn-link-disabled-color;
 		pointer-events: none;
-	}
+  }
 
 	// No need for an active state here
 }
@@ -137,7 +131,7 @@ each(@theme-colors, #(@value, @color) {
 
 .btn-block {
 	display: block;
-	width: 100%;
+	width:   100%;
 
 	// Vertically space out multiple block buttons
 	+ .btn-block {
