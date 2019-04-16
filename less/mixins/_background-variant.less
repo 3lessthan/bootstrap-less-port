@@ -1,19 +1,19 @@
 // Contextual backgrounds
 
-#bg-variant(@parent, @color) {
+// stylelint-disable declaration-no-important
+#bg-variant(@parent; @color; @color-hover: darken(@color, 10%)) {
 	@{parent} {
 		background-color: @color !important;
 	}
 	a@{parent},
 	button@{parent} {
 		#hover-focus({
-			background-color: darken(@color, 10%) !important;
+			background-color: @color-hover !important;
 		});
 	}
 }
-
-#bg-gradient-variant(@parent, @color) {
-	@{parent} {
-		background: @color linear-gradient(180deg, mix(@body-bg, @color, 15%), @color) repeat-x !important;
-	}
+.bg-gradient-variant(@parent; @color) {
+  @{parent} {
+    background: @color linear-gradient(180deg, mix(@body-bg, @color, 15%), @color) repeat-x !important;
+  }
 }
