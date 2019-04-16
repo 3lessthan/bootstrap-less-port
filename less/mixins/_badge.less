@@ -2,11 +2,19 @@
 	color:            @color;
 	background-color: @bg;
 
-	&[href] {
+  &[href],
+  // @at-root a#{&}
+  // Less does not have this so it is omitted
+  &a {
 		#hover-focus({
 			color:            @hover-color;
-			text-decoration:  none;
 			background-color: @hover-bg;
 		})
-	}
+  }
+
+  &:focus,
+  &.focus {
+    outline:    0;
+    box-shadow: 0 0 0 @badge-focus-width rgba(@bg, .5);
+  }
 }
