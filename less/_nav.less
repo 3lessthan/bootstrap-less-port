@@ -1,14 +1,14 @@
 // Base class
 //
 // Kickstart any navigation component with a set of style resets. Works with
-// `<nav>`s or `<ul>`s.
+// `<nav>`s, `<ul>`s or `<ol>`s.
 
 .nav {
-	display: flex;
-	flex-wrap: wrap;
-	padding-left: 0;
+	display:       flex;
+	flex-wrap:     wrap;
+	padding-left:  0;
 	margin-bottom: 0;
-	list-style: none;
+	list-style:    none;
 }
 
 .nav-link {
@@ -21,7 +21,9 @@
 
 	// Disabled state lightens text
 	&.disabled {
-		color: @nav-link-disabled-color;
+    color:          @nav-link-disabled-color;
+    pointer-events: none;
+    cursor:         default;
 	}
 }
 
@@ -45,17 +47,17 @@
 		});
 
 		&.disabled {
-			color: @nav-link-disabled-color;
+			color:            @nav-link-disabled-color;
 			background-color: transparent;
-			border-color: transparent;
+			border-color:     transparent;
 		}
 	}
 
 	.nav-link.active,
 	.nav-item.show .nav-link {
-		color: @nav-tabs-link-active-color;
+		color:            @nav-tabs-link-active-color;
 		background-color: @nav-tabs-link-active-bg;
-		border-color: @nav-tabs-link-active-border-color;
+		border-color:     @nav-tabs-link-active-border-color;
 	}
 
 	.dropdown-menu {
@@ -78,7 +80,7 @@
 
 	.nav-link.active,
 	.show > .nav-link {
-		color: @nav-pills-link-active-color;
+		color:            @nav-pills-link-active-color;
 		background-color: @nav-pills-link-active-bg;
 	}
 }
@@ -90,7 +92,7 @@
 
 .nav-fill {
 	.nav-item {
-		flex: 1 1 auto;
+		flex:       1 1 auto;
 		text-align: center;
 	}
 }
@@ -98,7 +100,7 @@
 .nav-justified {
 	.nav-item {
 		flex-basis: 0;
-		flex-grow: 1;
+		flex-grow:  1;
 		text-align: center;
 	}
 }
