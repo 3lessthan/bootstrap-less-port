@@ -12,10 +12,10 @@
 // contrast against a dark gray background.
 #form-control-focus() {
 	&:focus {
-		color: @input-focus-color;
+		color:            @input-focus-color;
 		background-color: @input-focus-bg;
-		border-color: @input-focus-border-color;
-		outline: 0;
+		border-color:     @input-focus-border-color;
+		outline:          0;
 		// Avoid using mixin so we can pass custom focus shadow properly
 		& when (@enable-shadows) {
 			box-shadow: @input-box-shadow, @input-focus-box-shadow;
@@ -29,24 +29,24 @@
 
 #form-validation-state(@state, @color) {
 	.@{state}-feedback {
-		display: none;
-		width: 100%;
+		display:    none;
+		width:      100%;
 		margin-top: @form-feedback-margin-top;
-		font-size: @form-feedback-font-size;
-		color: @color;
+		font-size:  @form-feedback-font-size;
+		color:      @color;
 	}
 
 	.@{state}-tooltip {
-		position: absolute;
-		top: 100%;
-		z-index: 5;
-		display: none;
-		max-width: 100%; // Contain to parent when possible
-		padding: @tooltip-padding-y @tooltip-padding-x;
-		margin-top: 0.1rem;
-		font-size: @tooltip-font-size;
-		line-height: @line-height-base;
-		color: color-yiq(@color);
+		position:         absolute;
+		top:              100%;
+		z-index:          5;
+		display:          none;
+		max-width:        100%; // Contain to parent when possible
+		padding:          @tooltip-padding-y @tooltip-padding-x;
+		margin-top:       0.1rem;
+		font-size:        @tooltip-font-size;
+		line-height:      @line-height-base;
+		color:            color-yiq(@color);
 		background-color: rgba(red(@color), green(@color), blue(@color), @tooltip-opacity);
 		#border-radius(@tooltip-border-radius);
 	}
@@ -59,7 +59,7 @@
 
 			&:focus {
 				border-color: @color;
-				box-shadow: 0 0 0 @input-focus-width fade(@color, 25%);
+				box-shadow:   0 0 0 @input-focus-width fade(@color, 25%);
 			}
 
 			~ .@{state}-feedback,
